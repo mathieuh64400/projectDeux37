@@ -15,18 +15,26 @@
 
 		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
 	</head>
-
+	{# Connectez en tant que
+				{{ app.user.userIdentifier }} < #}
 	<body>
 		<div class="nav">
-			<a href="{{ path('app_login')}}">Connexion</a>
+		    <a href="{{ path('app_home')}}">Home</a>
+			
 			{% if app.user %}
-
-				Connectez en tant que
-				{{ app.user.userIdentifier }},
-				<a href="{{ path('app_logout') }}">Deconnexion</a>
-
-			{% endif %}
+        
+              <a href="{{ path('app_logout') }}">Deconnexion</a>
+      			 {% else %}
+				<a href="{{ path('app_login')}}">Connexion</a>
+    		{% endif %}
 			<a href="{{ path('app_produit')}}">Produit</a>
+			{# {% if app.user %}
+
+			
+				<a href="{{ path('app_logout') }}">Deconnexion</a>
+					<a href="{{ path('app_admin') }}">Admin</a>
+			{% endif %} #}
+			
 
 		</div>
 		<div class="central">

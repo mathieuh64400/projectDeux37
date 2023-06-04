@@ -35,6 +35,9 @@ class Produit
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $is_Valid = null;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -131,6 +134,18 @@ class Produit
     public function setDescription(?string $Description): self
     {
         $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function isIsValid(): ?bool
+    {
+        return $this->is_Valid;
+    }
+
+    public function setIsValid(?bool $is_Valid): self
+    {
+        $this->is_Valid = $is_Valid;
 
         return $this;
     }

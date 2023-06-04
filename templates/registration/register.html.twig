@@ -3,20 +3,19 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<section class="home">
-    
-<form >
-<h1 class="h1form">Enregistrez-vous</h1>
-    {{ form_start(registrationForm) }}
-     <label for="inputEmail">Votre email</label>
-        {{ form_row(registrationForm.email) }}
-        <label for="inputEmail">Votre mot de passe</label>
-        {{ form_row(registrationForm.plainPassword) }}
-        {# {{ form_row(registrationForm.agreeTerms) }} #}
+<section
+		class="container-form">
+    <h1>Register</h1>
 
-        <button type="submit" class="btn btn-form">Soumettre</button>
-         <p> Deja inscrit ?  <a href="{{ path('app_login')}}"> Connectez-vous !!!</a> </p>
+    {{ form_start(registrationForm) }}
+      <label for="inputEmail"> votre Email</label>
+        {{ form_row(registrationForm.email) }}
+          <label for="inputEmail"> votre Mot de Passe</label>
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-form">Register</button>
     {{ form_end(registrationForm) }}
-</form>
-    </section>
+
+</section>
 {% endblock %}

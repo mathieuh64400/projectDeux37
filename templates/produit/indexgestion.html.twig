@@ -1,28 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %} {% endblock %}
 
 {% block body %}
 <section
 		class="container-form">
-    <h1>Categorie index</h1>
+    <h1>Listes des Produit</h1>
 
     <table id="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>actions</th>
+                <th>description</th>
             </tr>
         </thead>
         <tbody>
-        {% for categorie in categories %}
+        {% for produit in produits %}
             <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.libelle }}</td>
+                <td>{{produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                 {# <td>{{ produit.is_Valid }}</td> #}
                 <td>
-                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                    <a href="{{ path('app_categorie_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

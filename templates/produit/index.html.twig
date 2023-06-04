@@ -50,13 +50,14 @@
 
 			{% endfor %}
 		</section>
-		<div style="display:flex; flex-direction:row;">
+		<div class="rep" >
+			
 			{% for item in 1..((nombre/limit)|round(0,'ceil')) %}
-				<p class="{{(page == item) ? 'active' : ''}}" style=" background-color: grey; opacity:0.75;  margin-left:10px; width: 25px; height:25px;">
-					<a href="?page={{item}}" style=" color:white; text-decoration:none; display: flex; justify-content:center; align-items:center;">{{item}}</a>
+				<p class=" pagination  {{(page == item) ? 'active' : ''}} "   >
+					<a href="?page={{item}}" class="item-pagination" >{{item}}</a>
 				</p>
-			</div>
-		{% endfor %}
+			
+		{% endfor %}</div>
 	</section>
 
 {% endblock %}

@@ -34,12 +34,13 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">pas de region</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_region_new') }}">Create new</a>
+    <a href="{{ path('app_region_new') }}">Creer une nouvelle region</a>
+     <a href="{{ path('app_admin') }}"> dashboard</a>
     </section>
 {% endblock %}

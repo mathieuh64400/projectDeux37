@@ -3,36 +3,45 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<section class="home">
+<section
+		class="container-form">
 <form method="post">
     {% if error %}
-    <div> Mot de passe ou email incorrect </div>
-        {# <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div> #}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
+    {# {% if app.user %}
         <div class="mb-3">
-            Connectez en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
-    {% endif %}
+    {% endif %} #}
 
-    <h1 class="h1form">Connectez-vous</h1>
-    <label for="inputEmail">Votre email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
-    <label for="inputPassword">mot de Passe</label>
-    <input type="password" name="password" id="inputPassword"  required>
+    <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+    <label for="inputEmail"> votre Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">votre mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
 
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
     <button class="btn btn-form" type="submit">
-        Connexion
+        Connection
     </button>
-     <p> pas encore inscrit ?  <a href="{{ path('app_register')}}"> Inscrivez-vous !!!</a> </p>
-
 </form>
-
+ <a href="{{ path('app_register') }}">pas encore Inscrit, c'est par ICI!!!</a>
 
 
 </section>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+      
+    
+        <section class="home">
+            <h1> Administrer ce site</h1>
+                    <br>
+            <div>
+
+                <a href="{{ path('app_categorie_index')}}">Categorie</a>
+                <a href="{{ path('app_produit_gestion')}}">produit</a>
+                <a href="{{ path('app_departement_index')}}">departement</a>
+                <a href="{{ path('app_region_index')}}">region</a>
+            </div>
+
+        <section>
+{% endblock %}

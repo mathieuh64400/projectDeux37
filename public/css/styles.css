@@ -1,228 +1,266 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-image:
-        url("https://www.photo-paysage.com/albums/Provence/calanques/cassis/thumb_calanque-d-en-vau.jpg");
+  background-image:
+    url("https://www.photo-paysage.com/albums/Provence/calanques/cassis/thumb_calanque-d-en-vau.jpg");
 
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow-x: hidden;
-    width:100%;
-    height: 100vh;
-  
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+
 }
-a{
-    text-decoration: none;
+
+a {
+  text-decoration: none;
 }
+
 .nav {
-    width: 102%;
-    height: 5em;
-    margin-top: 2%;
-    /* margin-left: -2%; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    opacity: 0.7;
+  width: 102%;
+  height: 5em;
+  margin-top: 2%;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  background-color: white;
+  opacity: 0.7;
 
 
 }
 
-.nav > a {
-    margin-left: 10%;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+.nav>a {
+  margin-left: 10%;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    opacity: 0.7;
-    text-align: center;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  opacity: 0.7;
+  text-align: center;
+}
 
-  .central{
-  
-    width: 100%;
-    height: 100%;
-    display: flex;
- 
-    justify-content: center;
+.central {
 
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+
+}
 
 
-  .home{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    background-color: white;
-    width: 25%;
-    height: 30%;
-    border-radius: 5px;
-  }
-  .cadre{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    height: 80%;
-    border-radius: 5px
-  }
-  .container-form{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    padding:2%;
-   margin-top:5%;
-    background-color: white;
-    width: 66%;
-    height: 70%;
-    border-radius: 5px
-  }
-  
-  .homeProduit{  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: left;
-    background-color: white;
-    width: 100%;
-    height: 80%;
-   
-  }
+.home {
 
-  .home >h1{
-   font-size: 1em;
-   
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  background-color: white;
+  width: 25%;
+  height: 30%;
+  border-radius: 5px;
+}
 
-  form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 5%;
-  }
-  .h1form{
-    font-size:1em;
-    margin-bottom: 5%;
-  }
-  .btn{
-    /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 2%;
+.cadre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-top: 1%;
+  width: 80%;
+  height: 80%;
+  border-radius: 5px
+}
 
-  }
-  .btn-form{
-    background-color: black;
-    width:260px;
-     padding: 2%;
+.container-form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 2%;
+  margin-top: 5%;
+  background-color: white;
+  width: 66%;
+  height: 70%;
+  border-radius: 5px
+}
 
-  }
-  .btn-link{
-    background-color: white;
-     color: black;
-     border: 2px solid black;
-    width:260px;
-     
-  }
+.homeProduit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+  background-color: white;
+  width: 100%;
+  height: 80%;
 
-  /* input[type=text],input[type=mail],input[type=text]{
+}
+
+.home>h1 {
+  font-size: 1em;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+}
+
+.h1form {
+  font-size: 1em;
+  margin-bottom: 5%;
+}
+
+.btn {
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 2%;
+
+}
+
+.btn-form {
+  background-color: black;
+  width: 260px;
+  padding: 2%;
+
+}
+
+.btn-link {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  width: 260px;
+
+}
+
+/* input[type=text],input[type=mail],input[type=text]{
     width:99%;
 
   } */
 
-  /* traitement de la cate */
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-  }
-  
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .card button:hover {
-    opacity: 0.7;
-  }
+/* traitement de la cate */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
-  .select{
-    width:200px;
-  }
-  .inputText,.textarea{
-    width:100%;
-  }
+.price {
+  color: grey;
+  font-size: 22px;
+}
 
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
 
+.card button:hover {
+  opacity: 0.7;
+}
 
-  /* table pour categorie */
-  #table {
-    margin: 2%;
-    border-collapse: collapse;
-    width: 100%;
+.select {
+  width: 200px;
+}
 
-  }
-  
-  #table td, #table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #table tr:hover {background-color: #ddd;}
-  
-  #table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: black;
-    color: white;
-  }
+.inputText,
+.textarea {
+  width: 100%;
+}
 
 
 
+/* table pour categorie */
+#table {
+  margin: 2%;
+  border-collapse: collapse;
+  width: 100%;
 
+}
+
+#table td,
+#table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table tr:hover {
+  background-color: #ddd;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+
+
+/* pagination */
+
+.rep{
+  display:flex; flex-direction:row;  width: 100%; align-items:center; justify-content:center; text-align: center;
+}
+.pagination {
+  background-color: grey;
+  opacity: 0.75;
+  width: 25px;
+  height: 25px;
+}
+
+.item-pagination {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+ 
+  background-color: black !important;
+}
