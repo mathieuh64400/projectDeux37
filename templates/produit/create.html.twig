@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+<section class="container-form">
+ <h1>Creer un nouveau produit: </h1>
+ {{ include('produit/_form.html.twig') }}
+{# {{form(form)}} #}
+
+<a href="{{ path('app_produit') }}">back to list</a>
+
+
+
+
+
+
+
+        {% block javascripts %}
+
+<script>
+
+window.onload = () => {
+    //
+    let region= document.querySelector("#produit_regions");
+    console.log(region);
+    region.addEventListener("change",function(){
+        let form = this.closest("form");
+       console.log( this.name,form.getAttribute("method"))
+        let data= this.name +"="+this.value;
+       console.log(form.action);
+
+       fetch(form.action,{
+           method: form.getAttribute("method"),
+           body:  data,
+           headers:
+           {
+               "Content-Type":"application/x-www-form-urlencoded; charset: UTF-8"
+           }
+       }).then(response=>response.text()).then(html=>{
+           let content= document.createElement("html");
+         console.log(html)
+           content.innerHTML= html;
+           console.log(content.innerHTML)
+           let nouveauSelect=content.querySelector("#produit_departement")
+            console.log(nouveauSelect);
+            document.querySelector("#produit_departement").replaceWith(nouveauSelect);
+
+       })
+
+
+
+    })
+
+} 
+</script>
+        {% endblock %}
+
+</section>
+{% endblock %}

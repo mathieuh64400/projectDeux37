@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Region index{% endblock %}
+
+
+
+{% block body %}
+
+
+
+
+<section
+		class="container-form">
+
+    <h1>Region index</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+          
+            </tr>
+        </thead>
+        <tbody>
+        {% for region in regions %}
+            <tr>
+                <td>{{ region.id }}</td>
+                <td>{{ region.nom }}</td>
+                {# <td>
+                    <a href="{{ path('app_region_show', {'id': region.id}) }}">show</a>
+                   
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_region_new') }}">Create new</a>
+    </section>
+{% endblock %}

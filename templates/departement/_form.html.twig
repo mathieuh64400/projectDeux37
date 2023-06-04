@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+    
+<label for="inputtext"> Origine du produit:</label>
+{{form_widget(form.nom , {'attr': {'class': 'inputText'}})}}
+<label for="inputtext"> Le code postal du departement:</label>
+{{form_widget(form.code, {'attr': {'class': 'inputText'}})}}
+<label for="inputtext"> la region liée au département</label>
+{{form_widget(form.region)}}
+    <button class="btn btn-form">{{ button_label|default('valider') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,28 @@
+{{form_start(form)}}
+<label for="inputtext">le nom du produit</label>
+{{form_widget(form.nom, {'attr': {'class': 'inputText'}})}}
+
+<label for="inputtext"> Origine du produit:</label>
+{{form_widget(form.departement , {'attr': {'class': 'select'}})}}
+<label for="inputtext"> La categorie de votre produit:</label>
+{{form_widget(form.categorie, {'attr': {'class': 'select'}})}}
+<label for="inputtext"> la description produit</label>
+{{form_widget(form.description , {'attr': {'class': 'textarea'}})}}
+
+
+     {# {% if app.request.attributes.get('_route') == 'app_produit_edit' %}
+     <h2> Images</h2>
+
+    {% for image in produit.images %}
+
+        <img src="{{asset('/uploads/' ~ image.name)}}" alt="" width="500">
+        <a href={{path('app_produit_delete_image',{'id': image.id})}} data-token="{{csrf_token('delete' ~ image.id)}}" data-delete>X</a>
+    {% endfor %}
+    
+    {% endif %} #}
+
+
+ <button class="btn btn-form">{{ button_label|default('Save') }}</button>
+{{form_end(form)}}
+
+

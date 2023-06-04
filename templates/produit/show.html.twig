@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}hello{% endblock %}
+
+
+{% block body %}
+<section
+		class="container-form">
+    <h1> Informations sur {{produit.nom}}</h1>
+    <br><br>
+    <div class="card">
+					{# <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%"> #}
+					<h1>{{produit.nom}}</h1>
+                    <p>------------------</p>
+					<p>{{produit.description}}</p>
+                    <p> Produit a: {{produit.Villecreation}} <br> Dans le  {{produit.departement.nom}} <br> Dans le {{produit.departement.region.nom}}</p>
+					{# <p> apartient a  la categorie {{produit.categorie.libelle}}</p> #}
+                    <p>
+						<button class="btn btn-link">
+							<a   href="{{path("app_list_produit_add",{id: produit.id})}}">Ajouter a la liste</a>
+						</button>
+					</p>
+				</div>
+
+    {# <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ produit.nom }}</td>
+            </tr>
+             <tr>
+                <th>departement</th>
+                <td>{{ produit.departement.code}}</td>
+            </tr>
+        </tbody>
+    </table> #}
+
+    {# <a href="{{ path('app_categorie_index') }}">back to list</a>
+
+    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+#}
+    {{ include('produit/_delete_form.html.twig') }} 
+    </section>
+{% endblock %}

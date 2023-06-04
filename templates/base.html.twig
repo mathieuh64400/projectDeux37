@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+		{% endblock %}
+		{# {% block javascripts %}
+				        {% endblock %} #}
+
+		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
+	</head>
+
+	<body>
+		<div class="nav">
+			<a href="{{ path('app_login')}}">Connexion</a>
+			{% if app.user %}
+
+				Connectez en tant que
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Deconnexion</a>
+
+			{% endif %}
+			<a href="{{ path('app_produit')}}">Produit</a>
+
+		</div>
+		<div class="central">
+         {% block body %}{% endblock %}
+         
+			</div>
+
+
+			<div class="footer">
+				<p>site de Mathieu 🄯 réalisé le 04/06/2023</p>
+			</div>
+			{# {% include "elt/_footer.html.twig" %} #}
+		</body>
+	</html>

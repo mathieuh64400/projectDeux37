@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Departement index{% endblock %}
+
+{% block body %}
+    
+<section
+		class="container-form">
+        <h1>liste des départements</h1>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Code</th>
+                <th>Region</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for departement in departements %}
+            <tr>
+                <td>{{ departement.id }}</td>
+                <td>{{ departement.nom }}</td>
+                <td>{{ departement.code }}</td>
+                <td>{{ departement.region.nom }}</td>
+                <td>
+                    {# <a href="{{ path('app_departement_show', {'id': departement.id}) }}">show</a> #}
+                    <a href="{{ path('app_departement_edit', {'id': departement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_departement_new') }}">Créer un nouveau département</a>
+    </section>
+{% endblock %}

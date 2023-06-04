@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+<label for="inputtext">le nom de la region</label>
+    {{ form_widget(form) }}
+    <button class="btn btn-form">{{ button_label|default('Valider') }}</button>
+{{ form_end(form) }}

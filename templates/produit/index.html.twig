@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!
+{% endblock %}
+
+{% block body %}
+
+
+	<section
+		class="cadre">
+		{# {{form(form)}} #}
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<button class="btn btn-form" type="submit">
+			Rechercher
+		</button>
+		{{ form_end(form) }}
+
+		<section class="homeProduit">
+			{% for produit in produits %}
+
+				<div
+					class="card">
+					{# <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%"> #}
+					<h1>{{produit.nom}}</h1>
+					<p>{{produit.description|u.truncate(30,'...')}}</p>
+					<p>
+						<button>
+							<a style="color:white; text-decoration:none;" href="{{path("app_list_produit_add",{id: produit.id})}}">Ajouter a la liste</a>
+						</button>
+					</p>
+				</div>
+
+
+				{#                 
+																	<div>
+																		{{produit.id}}</div>
+																	<br>
+																	<div>
+																		{{produit.nom}}</div> #}
+			{# <button type="button" class="btn btn-success">
+											<a style="color:black; text-decoration:none;" href="{{path("app_list_produit_add",{id: produit.id})}}">
+												Ajouter
+											</a>
+										</button> #}
+				{# 
+																	<a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+																	<a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a> #}
+
+
+			{% endfor %}
+		</section>
+		<div style="display:flex; flex-direction:row;">
+			{% for item in 1..((nombre/limit)|round(0,'ceil')) %}
+				<p class="{{(page == item) ? 'active' : ''}}" style=" background-color: grey; opacity:0.75;  margin-left:10px; width: 25px; height:25px;">
+					<a href="?page={{item}}" style=" color:white; text-decoration:none; display: flex; justify-content:center; align-items:center;">{{item}}</a>
+				</p>
+			</div>
+		{% endfor %}
+	</section>
+
+{% endblock %}

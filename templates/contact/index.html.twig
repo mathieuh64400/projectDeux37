@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}contact{% endblock %}
+
+{% block body %}
+<section class="container-form">
+<h1> Contactez-nous</h1>
+
+<div style="margin-top:5%;">
+		{{form_start(form)}}
+		<label>
+			Votre demande
+		</label>
+		{{form_widget(form.sujet)}}
+		<label>
+			votre email
+		</label>
+		{{form_widget(form.email)}}
+		<label>
+			votre Message
+		</label>
+		{{form_widget(form.message)}}
+		{{form_end(form)}}
+	</div>	
+</section>
+{% endblock %}

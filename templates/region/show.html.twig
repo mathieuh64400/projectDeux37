@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Region{% endblock %}
+
+{% block body %}
+<section class="container-form">
+    <h1> liste des Region</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ region.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ region.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_region_index') }}">back to list</a>
+
+    {# <a href="{{ path('app_region_edit', {'id': region.id}) }}">edit</a> #}
+
+    {{ include('region/_delete_form.html.twig') }}
+    </section>
+{% endblock %}

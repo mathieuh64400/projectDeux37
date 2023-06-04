@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<section class="home">
+<form method="post">
+    {% if error %}
+    <div> Mot de passe ou email incorrect </div>
+        {# <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div> #}
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            Connectez en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h1form">Connectez-vous</h1>
+    <label for="inputEmail">Votre email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
+    <label for="inputPassword">mot de Passe</label>
+    <input type="password" name="password" id="inputPassword"  required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button class="btn btn-form" type="submit">
+        Connexion
+    </button>
+     <p> pas encore inscrit ?  <a href="{{ path('app_register')}}"> Inscrivez-vous !!!</a> </p>
+
+</form>
+
+
+
+</section>
+{% endblock %}
