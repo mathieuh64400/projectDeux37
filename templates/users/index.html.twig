@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block body %}
+<section
+		class="cadre">
+    <h1>Liste des Utilisateurs</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+           
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td> {% for role in user.roles %}
+                        
+                    {% if role is same as("ROLE_USER")  %}
+                    Utilisateur
+                    {% else %}
+                    Administrateur
+                    {% endif %} 
+                    
+                {% endfor %}</td>
+               
+                <td>
+                   
+                    <a href="{{ path('app_users_modify', {'id': user.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">pas d'Utilisateurs</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+</section>
+{% endblock %}

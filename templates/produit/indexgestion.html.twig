@@ -5,14 +5,16 @@
 {% block body %}
 <section
 		class="container-form">
-    <h1>Listes des Produit</h1>
+    <h1>Listes des Produits</h1>
 
     <table id="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Libelle</th>
+                <th>Non</th>
                 <th>description</th>
+                 <th>categorie</th>
+                   <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -20,22 +22,22 @@
             <tr>
                 <td>{{produit.id }}</td>
                 <td>{{ produit.nom }}</td>
-                <td>{{ produit.description }}</td>
-                 {# <td>{{ produit.is_Valid }}</td> #}
+                <td>{{ produit.description |u.truncate(30,'...') }}</td>
+                 <td>{{ produit.categorie.libelle }}</td>
                 <td>
-                    <a href="{{ path('app_categorie_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">edit</a>
+                   <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">editer</a> 
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">voir</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">pas de categorie</td>
+                <td colspan="3">pas de produit</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_categorie_new') }}">creer une nouvelle categorie</a>
-   <a href="{{ path('app_admin') }}"> dashboard</a>
+    <a href="{{ path('app_produit_create') }}">creer un nouveau produit</a>
+   <a href="{{ path('app_gestion') }}"> voir le dashboard</a>
     </section>
 {% endblock %}

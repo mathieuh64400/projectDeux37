@@ -23,7 +23,7 @@ class Produit
     #[ORM\ManyToOne(inversedBy: 'produit')]
     private ?Departement $departement = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $Villecreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'produit')]

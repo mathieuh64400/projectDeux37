@@ -27,7 +27,7 @@ a {
   width: 102%;
   height: 5em;
   margin-top: 2%;
-  
+
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -115,6 +115,18 @@ a {
 
 }
 
+.homecadre {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: left;
+  background-color: white;
+  width: 100%;
+  height: 80%;
+  border: 10px solid red;
+
+}
+
 .home>h1 {
   font-size: 1em;
 
@@ -169,6 +181,8 @@ form {
   } */
 
 /* traitement de la cate */
+
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -182,7 +196,7 @@ form {
   font-size: 22px;
 }
 
-.card button {
+.card, button {
   border: none;
   outline: 0;
   padding: 12px;
@@ -194,7 +208,7 @@ form {
   font-size: 18px;
 }
 
-.card button:hover {
+.card, button:hover {
   opacity: 0.7;
 }
 
@@ -213,14 +227,20 @@ form {
 #table {
   margin: 2%;
   border-collapse: collapse;
-  width: 100%;
+  background-color: white;
+  /* width: 100%;
+  height: 100px;
+  overflow: auto; */
 
 }
+#table tbody {
+  height: 100px;
 
+}
 #table td,
 #table th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 1px;
 }
 
 #table tr:nth-child(even) {
@@ -231,25 +251,34 @@ form {
   background-color: #ddd;
 }
 
+
 #table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-align: left;
   background-color: black;
   color: white;
 }
 
 
+
 /* pagination */
 
-.rep{
-  display:flex; flex-direction:row;  width: 100%; align-items:center; justify-content:center; text-align: center;
+.rep {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
 }
+
 .pagination {
   background-color: grey;
   opacity: 0.75;
   width: 25px;
-  height: 25px;
+  height: 25px;  margin-bottom: 2%;
 }
 
 .item-pagination {
@@ -261,6 +290,6 @@ form {
 }
 
 .active {
- 
+
   background-color: black !important;
 }

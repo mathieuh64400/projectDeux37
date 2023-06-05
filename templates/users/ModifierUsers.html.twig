@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+ {% block body %}
+ <section class="container-form">
+ <h1> modifier le role d'un utilisateur</h1>
+{{ include('users/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+  <a href="{{ path('app_users_index') }}">retour</a>
+
+ </section>
+  
+ {% endblock %}

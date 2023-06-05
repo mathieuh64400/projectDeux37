@@ -4,12 +4,15 @@
 <h4> liste des courses  {{nom}}</h4>
 
    <div style="display:flex; flex-direction:row; align-item:center; justify-content:space-around;"> 
+          
+          
+      <h1> Liste des produits </h1>    
            <div> 
            {% for item in list_Produit %}
                <p>{{item}}</p>
             {% endfor %}
             </div>
-
+         <h1> Quanité de chaque produit </h1>
             <div>
             {% for item in qte_Produit %}
                <p>{{item}}</p>
@@ -17,4 +20,6 @@
             </div>
 
 </div>
+<p> envoyez nous le coupon par mail  et nous vous fournirons les produits en quantités demandées au meilleurs prix!!! </p> 
+
  {% endblock %}

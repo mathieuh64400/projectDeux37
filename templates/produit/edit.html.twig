@@ -8,7 +8,7 @@
 
     {{ include('produit/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_produit') }}">back to list</a>
+    <a href="{{ path('app_produit') }}">Retour a la liste des Produits</a>
 {# {{ include('produit/_delete_form.html.twig') }}  #}
 
 
@@ -16,7 +16,7 @@
 
 </section>
         {% block javascripts %}
-        <script>
+        {# <script>
 window.onload = () => {
     //
     let region= document.querySelector("#produit_regions");
@@ -51,7 +51,7 @@ window.onload = () => {
     })
 
 } 
-</script>
+</script> #}
 
    {% endblock %}
 

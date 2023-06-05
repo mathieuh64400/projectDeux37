@@ -20,20 +20,21 @@
 	<body>
 		<div class="nav">
 		    <a href="{{ path('app_home')}}">Home</a>
+			<a href="{{ path('app_gestion') }}">Gestion</a>
 			
+			<a href="{{ path('app_produit')}}">Produit</a>
 			{% if app.user %}
         
               <a href="{{ path('app_logout') }}">Deconnexion</a>
+			  {# <a href="{{ path('app_adminE') }}">Admin</a> #}
       			 {% else %}
 				<a href="{{ path('app_login')}}">Connexion</a>
     		{% endif %}
-			<a href="{{ path('app_produit')}}">Produit</a>
-			{# {% if app.user %}
-
 			
-				<a href="{{ path('app_logout') }}">Deconnexion</a>
-					<a href="{{ path('app_admin') }}">Admin</a>
+			{# {% if app.user.role[] is same as('ROLE_ADMIN') %}
+			<a href="{{ path('app_admin') }}">Admin</a>
 			{% endif %} #}
+			
 			
 
 		</div>

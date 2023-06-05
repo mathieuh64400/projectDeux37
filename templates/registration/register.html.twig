@@ -5,7 +5,7 @@
 {% block body %}
 <section
 		class="container-form">
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     {{ form_start(registrationForm) }}
       <label for="inputEmail"> votre Email</label>
@@ -14,8 +14,8 @@
         {{ form_row(registrationForm.plainPassword) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn btn-form">Register</button>
+        <button type="submit" class="btn btn-form">Enregistrez-Vous</button>
     {{ form_end(registrationForm) }}
-
+<p> <a href="{{ path('app_contact')}}">Retour a la connexion</a></p>
 </section>
 {% endblock %}

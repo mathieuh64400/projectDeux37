@@ -11,10 +11,15 @@
 
 <section
 		class="container-form">
-
+ <div>
     <h1>Region index</h1>
-
-    <table id="table">
+     <a href="{{ path('app_region_new') }}">Creer une nouvelle region</a> <br>
+     <a href="{{ path('app_gestion') }}"> voir le dashboard</a>
+    
+    
+    </div>
+<div>
+    <table id="table"style="height:20px; overflow:scroll; ">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,15 +27,12 @@
           
             </tr>
         </thead>
-        <tbody>
+        <tbody >
         {% for region in regions %}
             <tr>
                 <td>{{ region.id }}</td>
                 <td>{{ region.nom }}</td>
-                {# <td>
-                    <a href="{{ path('app_region_show', {'id': region.id}) }}">show</a>
-                   
-                </td> #}
+            
             </tr>
         {% else %}
             <tr>
@@ -38,9 +40,8 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table></div>
 
-    <a href="{{ path('app_region_new') }}">Creer une nouvelle region</a>
-     <a href="{{ path('app_admin') }}"> dashboard</a>
+   
     </section>
 {% endblock %}

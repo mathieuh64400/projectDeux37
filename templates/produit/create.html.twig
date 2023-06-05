@@ -8,7 +8,7 @@
  {{ include('produit/_form.html.twig') }}
 {# {{form(form)}} #}
 
-<a href="{{ path('app_produit') }}">back to list</a>
+<a href="{{ path('app_produit_gestion') }}">retour a la list des produits</a>
 
 
 
@@ -18,7 +18,7 @@
 
         {% block javascripts %}
 
-<script>
+{# <script>
 
 window.onload = () => {
     //
@@ -52,7 +52,7 @@ window.onload = () => {
 
     })
 
-} 
+}  #}
 </script>
         {% endblock %}
 

@@ -14,9 +14,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ProduitController extends AbstractController
-{
+{   #[IsGranted('ROLE_USER')]
     #[Route('/produit', name: 'app_produit')]
     public function index(ProduitRepository $prodrepo, Request $req): Response
     {
@@ -26,7 +27,7 @@ class ProduitController extends AbstractController
 
         // pagination des données
         $nombre = $prodrepo->getTotalArticle();
-        $limit = 5;
+        $limit = 3;
         $page = (int)$req->query->get("page", 1);
 
         $form = $this->createForm(SearchProduitType::class);
@@ -46,7 +47,7 @@ class ProduitController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/produitgestion', name: 'app_produit_gestion')]
     public function GestionProd(ProduitRepository $prodrepo): Response
     {
@@ -58,7 +59,7 @@ class ProduitController extends AbstractController
         ]);
     }
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/produit_new', name: 'app_produit_create', methods: ['GET', 'POST'])]
     public function create(City $city,  Request $req, ProduitRepository $prodrepo): Response
     {
@@ -68,8 +69,12 @@ class ProduitController extends AbstractController
 
         if ($form->isSubmitted() && $form->isvalid()) {
             $dep =  $form->get('departement')->getData();
+           
             $dataVilles = $city->call($dep->getCode());
+            
             $numcity = rand(1, count($dataVilles));
+            $prod->setVillecreation($dataVilles[$numcity]['nom']);
+           
             //    recuperation image transmise
             // $images = $form->get('images')->getData();
 
@@ -94,15 +99,16 @@ class ProduitController extends AbstractController
             //     $img->setName($fichier);
             //     $prod->addImage($img);
             // }
-            $prod->setVillecreation($dataVilles[$numcity]['nom']);
+           
+            
             $prodrepo->save($prod, true);
-            return $this->redirectToRoute('app_produit');
+            return $this->redirectToRoute('app_produit_gestion');
         }
         return $this->render('produit/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/produit_show/{id}', name: 'app_produit_show', methods: ['GET', 'POST'])]
     public function show(ProduitRepository $prodrepo, $id): Response
     {
@@ -115,6 +121,7 @@ class ProduitController extends AbstractController
 
 
     // edit
+    #[IsGranted('ROLE_USER')]
     #[Route('/produit/edit/{id}', name: 'app_produit_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Produit $prod, ProduitRepository $produitRepository, $id): Response
     {
@@ -160,7 +167,7 @@ class ProduitController extends AbstractController
 
 
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/produit_delete/{id}', name: 'app_produit_delete', methods: ['POST'])]
     public function delete(Request $request, Produit $produit, ProduitRepository $prodrepos): Response
     {

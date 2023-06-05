@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,6 +30,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\OneToMany(mappedBy: 'users', targetEntity: Listeproduit::class)]
+    private Collection $listproduit;
+
+    public function __construct()
+    {
+        $this->listproduit = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -97,5 +107,35 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Listeproduit>
+     */
+    public function getListproduit(): Collection
+    {
+        return $this->listproduit;
+    }
+
+    public function addListproduit(Listeproduit $listproduit): self
+    {
+        if (!$this->listproduit->contains($listproduit)) {
+            $this->listproduit->add($listproduit);
+            $listproduit->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListproduit(Listeproduit $listproduit): self
+    {
+        if ($this->listproduit->removeElement($listproduit)) {
+            // set the owning side to null (unless already changed)
+            if ($listproduit->getUsers() === $this) {
+                $listproduit->setUsers(null);
+            }
+        }
+
+        return $this;
     }
 }

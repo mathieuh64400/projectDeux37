@@ -14,9 +14,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ListProduitController extends AbstractController
-{
+{#[IsGranted('ROLE_USER')]
     #[Route('/listProduit', name: 'app_list_produit')]
     public function indexList(ProduitRepository $prod, SessionInterface $session,
     Request $req, ListeproduitRepository $listprod): Response
@@ -53,6 +54,7 @@ class ListProduitController extends AbstractController
             $newlistproduit-> setNom($string);
             $time=new \DateTimeImmutable();
             $newlistproduit->setCreatedAt($time);
+            $newlistproduit->setUsers($this->getUser());
         
             $listprod->save($newlistproduit, true);
        
@@ -69,7 +71,7 @@ class ListProduitController extends AbstractController
     // #[Route('/listProduitValidate', name: 'app_list_produit_validate')]
 
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/add/{id}', name: 'app_list_produit_add')]
     public function add(Produit $prod, SessionInterface $session){
         $id= $prod->getId();
@@ -106,7 +108,7 @@ class ListProduitController extends AbstractController
         return $this->redirectToRoute("app_list_produit");
     }
 
-    
+    #[IsGranted('ROLE_USER')]
     #[Route('/delete', name: 'app_delete_All')]
     public function deleteList(  SessionInterface $session)
     {
@@ -115,7 +117,7 @@ class ListProduitController extends AbstractController
         $session->set("list",[]);
        return $this->redirectToRoute("app_list_produit");
     }
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/seeList/{nom}', name: 'app_see_All')]
     public function seelist(ListeproduitRepository $list, $nom):Response
     {
@@ -140,7 +142,7 @@ class ListProduitController extends AbstractController
         ]);
     }
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/seeList/{nom}/download', name: 'app_data_course')]
     public function download(ListeproduitRepository $list,  SessionInterface $session, $nom):Response
     {

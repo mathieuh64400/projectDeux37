@@ -23,7 +23,11 @@
 					class="card">
 					{# <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%"> #}
 					<h1>{{produit.nom}}</h1>
-					<p>{{produit.description|u.truncate(30,'...')}}</p>
+					<p>{{produit.description|u.truncate(100,'...')}}</p>
+					<br>
+					<p> categorie : {{produit.categorie.libelle }}</p>
+						<p> region : {{produit.departement.region.nom }} </p>
+						<p> Ville : {{produit.Villecreation }} </p>
 					<p>
 						<button>
 							<a style="color:white; text-decoration:none;" href="{{path("app_list_produit_add",{id: produit.id})}}">Ajouter a la liste</a>
