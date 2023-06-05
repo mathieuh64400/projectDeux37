@@ -11,8 +11,10 @@ lors du lancement du projet :
 il vous faut vous inscrire à l'aide du systeme de connexion 
 
 deux choix s'offre à vous :
-- soit vous allez dans votre base de donnée et vous ajouté dans role la valeur ["ROLE_ADMIN"] et vous pouvez naviguer sur tout les liens
+- soit vous allez dans votre base de donnée et vous ajouté dans role la valeur ["ROLE_ADMIN"] et vous pouvez naviguer sur tous les liens
 - soit vous n'allez pas dans la base de donnée et vous naviguez comme simple Utilisateur.
+
+Les données sont issues de fixtures de Faker donc les termes ne correspondent a aucun terme réel.
 
 
 
